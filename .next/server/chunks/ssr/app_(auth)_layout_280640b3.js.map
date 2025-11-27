@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/vdk.codes/Desktop/ai-splitwise-clone/app/%28auth%29/layout.js"],"sourcesContent":["const AuthLayout = ({ children }) => {\n  return <div className=\"flex justify-center pt-40\">{children}</div>;\n};\n\nexport default AuthLayout;\n"],"names":[],"mappings":";;;;;AAAA,MAAM,aAAa,CAAC,EAAE,QAAQ,EAAE;IAC9B,qBAAO,8OAAC;QAAI,WAAU;kBAA6B;;;;;;AACrD;uCAEe","debugId":null}}]
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/vdk.codes/Desktop/SharePay%20Assets/share-pay/app/%28auth%29/layout.js"],"sourcesContent":["const AuthLayout = ({ children }) => {\n  return <div className=\"flex justify-center pt-40\">{children}</div>;\n};\n\nexport default AuthLayout;\n"],"names":[],"mappings":";;;;;AAAA,MAAM,aAAa,CAAC,EAAE,QAAQ,EAAE;IAC9B,qBAAO,8OAAC;QAAI,WAAU;kBAA6B;;;;;;AACrD;uCAEe","debugId":null}}]
 }
