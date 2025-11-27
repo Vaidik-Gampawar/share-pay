@@ -253,7 +253,7 @@ function ExpenseSummary({ monthlySpending, totalSpent }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                         className: "text-2xl font-bold mt-1",
                                         children: [
-                                            "$",
+                                            "₹",
                                             monthlySpending?.[currentMonth]?.total.toFixed(2) || "0.00"
                                         ]
                                     }, void 0, true, {
@@ -281,7 +281,7 @@ function ExpenseSummary({ monthlySpending, totalSpent }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                         className: "text-2xl font-bold mt-1",
                                         children: [
-                                            "$",
+                                            "₹",
                                             totalSpent?.toFixed(2) || "0.00"
                                         ]
                                     }, void 0, true, {
@@ -331,7 +331,7 @@ function ExpenseSummary({ monthlySpending, totalSpent }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Tooltip$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Tooltip"], {
                                         formatter: (value)=>[
-                                                `$${value.toFixed(2)}`,
+                                                `₹${value.toFixed(2)}`,
                                                 "Amount"
                                             ],
                                         labelFormatter: ()=>"Spending"
@@ -557,7 +557,7 @@ function BalanceSummary({ balances }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "font-medium text-green-600",
                                         children: [
-                                            "$",
+                                            "₹",
                                             item.amount.toFixed(2)
                                         ]
                                     }, void 0, true, {
@@ -650,7 +650,7 @@ function BalanceSummary({ balances }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "font-medium text-red-600",
                                         children: [
-                                            "$",
+                                            "₹",
                                             item.amount.toFixed(2)
                                         ]
                                     }, void 0, true, {
@@ -789,7 +789,7 @@ function GroupList({ groups }) {
                         className: `text-sm font-medium ${balance > 0 ? "text-green-600" : "text-red-600"}`,
                         children: [
                             balance > 0 ? "+" : "",
-                            "$",
+                            "₹",
                             balance.toFixed(2)
                         ]
                     }, void 0, true, {
@@ -936,7 +936,7 @@ function Dashboard() {
                                             children: balances?.totalBalance > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "text-green-600",
                                                 children: [
-                                                    "+$",
+                                                    "+₹",
                                                     balances?.totalBalance.toFixed(2)
                                                 ]
                                             }, void 0, true, {
@@ -946,7 +946,7 @@ function Dashboard() {
                                             }, this) : balances?.totalBalance < 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "text-red-600",
                                                 children: [
-                                                    "-$",
+                                                    "-₹",
                                                     Math.abs(balances?.totalBalance).toFixed(2)
                                                 ]
                                             }, void 0, true, {
@@ -954,7 +954,7 @@ function Dashboard() {
                                                 lineNumber: 75,
                                                 columnNumber: 21
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: "$0.00"
+                                                children: "₹0.00"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(main)/dashboard/page.jsx",
                                                 lineNumber: 79,
@@ -1007,7 +1007,7 @@ function Dashboard() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "text-2xl font-bold text-green-600",
                                             children: [
-                                                "$",
+                                                "₹",
                                                 balances?.youAreOwed.toFixed(2)
                                             ]
                                         }, void 0, true, {
@@ -1062,7 +1062,7 @@ function Dashboard() {
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "text-2xl font-bold text-red-600",
                                                 children: [
-                                                    "$",
+                                                    "₹",
                                                     balances?.youOwe.toFixed(2)
                                                 ]
                                             }, void 0, true, {
@@ -1087,7 +1087,7 @@ function Dashboard() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "text-2xl font-bold",
-                                                children: "$0.00"
+                                                children: "₹0.00"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/(main)/dashboard/page.jsx",
                                                 lineNumber: 126,
