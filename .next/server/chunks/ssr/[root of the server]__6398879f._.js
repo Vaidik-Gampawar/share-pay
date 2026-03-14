@@ -108,7 +108,9 @@ __turbopack_context__.s({
     "hasSrcAppDir": (()=>hasSrcAppDir),
     "suggestMiddlewareLocation": (()=>suggestMiddlewareLocation)
 });
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$utils$2f$sdk$2d$versions$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@clerk/nextjs/dist/esm/utils/sdk-versions.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$server$2f$fs$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@clerk/nextjs/dist/esm/server/fs/utils.js [app-rsc] (ecmascript)");
+;
 ;
 ;
 function hasSrcAppDir() {
@@ -123,16 +125,25 @@ function suggestMiddlewareLocation() {
         "ts",
         "js"
     ];
-    const suggestionMessage = (extension, to, from)=>`Clerk: clerkMiddleware() was not run, your middleware file might be misplaced. Move your middleware file to ./${to}middleware.${extension}. Currently located at ./${from}middleware.${extension}`;
+    const fileNames = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$utils$2f$sdk$2d$versions$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isNext16OrHigher"] ? [
+        "middleware",
+        "proxy"
+    ] : [
+        "middleware"
+    ];
+    const fileNameDisplay = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$utils$2f$sdk$2d$versions$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isNext16OrHigher"] ? "middleware or proxy" : "middleware";
+    const suggestionMessage = (fileName, extension, to, from)=>`Clerk: clerkMiddleware() was not run, your ${fileNameDisplay} file might be misplaced. Move your ${fileNameDisplay} file to ./${to}${fileName}.${extension}. Currently located at ./${from}${fileName}.${extension}`;
     const { existsSync } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$server$2f$fs$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["nodeFsOrThrow"])();
     const path = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$server$2f$fs$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["nodePathOrThrow"])();
     const cwd = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$server$2f$fs$2f$utils$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["nodeCwdOrThrow"])();
     const projectWithAppSrcPath = path.join(cwd(), "src", "app");
     const projectWithAppPath = path.join(cwd(), "app");
     const checkMiddlewareLocation = (basePath, to, from)=>{
-        for (const fileExtension of fileExtensions){
-            if (existsSync(path.join(basePath, `middleware.${fileExtension}`))) {
-                return suggestionMessage(fileExtension, to, from);
+        for (const fileName of fileNames){
+            for (const fileExtension of fileExtensions){
+                if (existsSync(path.join(basePath, `${fileName}.${fileExtension}`))) {
+                    return suggestionMessage(fileName, fileExtension, to, from);
+                }
             }
         }
         return void 0;

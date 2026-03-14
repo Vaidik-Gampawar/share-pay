@@ -69,7 +69,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-// packages/react/context/src/create-context.tsx
+// src/create-context.tsx
 __turbopack_context__.s({
     "createContext": (()=>createContext2),
     "createContextScope": (()=>createContextScope)
@@ -80,6 +80,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 function createContext2(rootComponentName, defaultContext) {
     const Context = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(defaultContext);
+    Context.displayName = rootComponentName + "Context";
     const Provider = (props)=>{
         const { children, ...context } = props;
         const value = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
@@ -106,6 +107,7 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
     let defaultContexts = [];
     function createContext3(rootComponentName, defaultContext) {
         const BaseContext = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(defaultContext);
+        BaseContext.displayName = rootComponentName + "Context";
         const index = defaultContexts.length;
         defaultContexts = [
             ...defaultContexts,

@@ -373,19 +373,30 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 ;
+var REACT_LAZY_TYPE = Symbol.for("react.lazy");
+var use = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[" use ".trim().toString()];
+function isPromiseLike(value) {
+    return typeof value === "object" && value !== null && "then" in value;
+}
+function isLazyComponent(element) {
+    return element != null && typeof element === "object" && "$$typeof" in element && element.$$typeof === REACT_LAZY_TYPE && "_payload" in element && isPromiseLike(element._payload);
+}
 // @__NO_SIDE_EFFECTS__
 function createSlot(ownerName) {
     const SlotClone = /* @__PURE__ */ createSlotClone(ownerName);
-    const Slot2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["forwardRef"])((props, forwardedRef)=>{
-        const { children, ...slotProps } = props;
-        const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Children"].toArray(children);
+    const Slot2 = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
+        let { children, ...slotProps } = props;
+        if (isLazyComponent(children) && typeof use === "function") {
+            children = use(children._payload);
+        }
+        const childrenArray = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.Children.toArray(children);
         const slottable = childrenArray.find(isSlottable);
         if (slottable) {
             const newElement = slottable.props.children;
             const newChildren = childrenArray.map((child)=>{
                 if (child === slottable) {
-                    if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Children"].count(newElement) > 1) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Children"].only(null);
-                    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isValidElement"])(newElement) ? newElement.props.children : null;
+                    if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.Children.count(newElement) > 1) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.Children.only(null);
+                    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.isValidElement(newElement) ? newElement.props.children : null;
                 } else {
                     return child;
                 }
@@ -393,7 +404,7 @@ function createSlot(ownerName) {
             return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
                 ...slotProps,
                 ref: forwardedRef,
-                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isValidElement"])(newElement) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["cloneElement"])(newElement, void 0, newChildren) : null
+                children: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.isValidElement(newElement) ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.cloneElement(newElement, void 0, newChildren) : null
             });
         }
         return /* @__PURE__ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsx"])(SlotClone, {
@@ -408,17 +419,20 @@ function createSlot(ownerName) {
 var Slot = /* @__PURE__ */ createSlot("Slot");
 // @__NO_SIDE_EFFECTS__
 function createSlotClone(ownerName) {
-    const SlotClone = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["forwardRef"])((props, forwardedRef)=>{
-        const { children, ...slotProps } = props;
-        if ((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isValidElement"])(children)) {
+    const SlotClone = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.forwardRef((props, forwardedRef)=>{
+        let { children, ...slotProps } = props;
+        if (isLazyComponent(children) && typeof use === "function") {
+            children = use(children._payload);
+        }
+        if (__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.isValidElement(children)) {
             const childrenRef = getElementRef(children);
             const props2 = mergeProps(slotProps, children.props);
-            if (children.type !== __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Fragment"]) {
+            if (children.type !== __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.Fragment) {
                 props2.ref = forwardedRef ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$compose$2d$refs$2f$dist$2f$index$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["composeRefs"])(forwardedRef, childrenRef) : childrenRef;
             }
-            return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["cloneElement"])(children, props2);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.cloneElement(children, props2);
         }
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Children"].count(children) > 1 ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Children"].only(null) : null;
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.Children.count(children) > 1 ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.Children.only(null) : null;
     });
     SlotClone.displayName = `${ownerName}.SlotClone`;
     return SlotClone;
@@ -437,7 +451,7 @@ function createSlottable(ownerName) {
 }
 var Slottable = /* @__PURE__ */ createSlottable("Slottable");
 function isSlottable(child) {
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["isValidElement"])(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
 function mergeProps(slotProps, childProps) {
     const overrideProps = {
@@ -585,7 +599,9 @@ const cva = (base, config)=>(props)=>{
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.s({
+/**
+ * Concatenates two arrays faster than the array spread operator.
+ */ __turbopack_context__.s({
     "createTailwindMerge": (()=>createTailwindMerge),
     "extendTailwindMerge": (()=>extendTailwindMerge),
     "fromTheme": (()=>fromTheme),
@@ -595,111 +611,176 @@ __turbopack_context__.s({
     "twMerge": (()=>twMerge),
     "validators": (()=>validators)
 });
+const concatArrays = (array1, array2)=>{
+    // Pre-allocate for better V8 optimization
+    const combinedArray = new Array(array1.length + array2.length);
+    for(let i = 0; i < array1.length; i++){
+        combinedArray[i] = array1[i];
+    }
+    for(let i = 0; i < array2.length; i++){
+        combinedArray[array1.length + i] = array2[i];
+    }
+    return combinedArray;
+};
+// Factory function ensures consistent object shapes
+const createClassValidatorObject = (classGroupId, validator)=>({
+        classGroupId,
+        validator
+    });
+// Factory ensures consistent ClassPartObject shape
+const createClassPartObject = (nextPart = new Map(), validators = null, classGroupId)=>({
+        nextPart,
+        validators,
+        classGroupId
+    });
 const CLASS_PART_SEPARATOR = '-';
+const EMPTY_CONFLICTS = [];
+// I use two dots here because one dot is used as prefix for class groups in plugins
+const ARBITRARY_PROPERTY_PREFIX = 'arbitrary..';
 const createClassGroupUtils = (config)=>{
     const classMap = createClassMap(config);
     const { conflictingClassGroups, conflictingClassGroupModifiers } = config;
     const getClassGroupId = (className)=>{
-        const classParts = className.split(CLASS_PART_SEPARATOR);
-        // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and remove it from classParts.
-        if (classParts[0] === '' && classParts.length !== 1) {
-            classParts.shift();
+        if (className.startsWith('[') && className.endsWith(']')) {
+            return getGroupIdForArbitraryProperty(className);
         }
-        return getGroupRecursive(classParts, classMap) || getGroupIdForArbitraryProperty(className);
+        const classParts = className.split(CLASS_PART_SEPARATOR);
+        // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and skip it.
+        const startIndex = classParts[0] === '' && classParts.length > 1 ? 1 : 0;
+        return getGroupRecursive(classParts, startIndex, classMap);
     };
     const getConflictingClassGroupIds = (classGroupId, hasPostfixModifier)=>{
-        const conflicts = conflictingClassGroups[classGroupId] || [];
-        if (hasPostfixModifier && conflictingClassGroupModifiers[classGroupId]) {
-            return [
-                ...conflicts,
-                ...conflictingClassGroupModifiers[classGroupId]
-            ];
+        if (hasPostfixModifier) {
+            const modifierConflicts = conflictingClassGroupModifiers[classGroupId];
+            const baseConflicts = conflictingClassGroups[classGroupId];
+            if (modifierConflicts) {
+                if (baseConflicts) {
+                    // Merge base conflicts with modifier conflicts
+                    return concatArrays(baseConflicts, modifierConflicts);
+                }
+                // Only modifier conflicts
+                return modifierConflicts;
+            }
+            // Fall back to without postfix if no modifier conflicts
+            return baseConflicts || EMPTY_CONFLICTS;
         }
-        return conflicts;
+        return conflictingClassGroups[classGroupId] || EMPTY_CONFLICTS;
     };
     return {
         getClassGroupId,
         getConflictingClassGroupIds
     };
 };
-const getGroupRecursive = (classParts, classPartObject)=>{
-    if (classParts.length === 0) {
+const getGroupRecursive = (classParts, startIndex, classPartObject)=>{
+    const classPathsLength = classParts.length - startIndex;
+    if (classPathsLength === 0) {
         return classPartObject.classGroupId;
     }
-    const currentClassPart = classParts[0];
+    const currentClassPart = classParts[startIndex];
     const nextClassPartObject = classPartObject.nextPart.get(currentClassPart);
-    const classGroupFromNextClassPart = nextClassPartObject ? getGroupRecursive(classParts.slice(1), nextClassPartObject) : undefined;
-    if (classGroupFromNextClassPart) {
-        return classGroupFromNextClassPart;
+    if (nextClassPartObject) {
+        const result = getGroupRecursive(classParts, startIndex + 1, nextClassPartObject);
+        if (result) return result;
     }
-    if (classPartObject.validators.length === 0) {
+    const validators = classPartObject.validators;
+    if (validators === null) {
         return undefined;
     }
-    const classRest = classParts.join(CLASS_PART_SEPARATOR);
-    return classPartObject.validators.find(({ validator })=>validator(classRest))?.classGroupId;
-};
-const arbitraryPropertyRegex = /^\[(.+)\]$/;
-const getGroupIdForArbitraryProperty = (className)=>{
-    if (arbitraryPropertyRegex.test(className)) {
-        const arbitraryPropertyClassName = arbitraryPropertyRegex.exec(className)[1];
-        const property = arbitraryPropertyClassName?.substring(0, arbitraryPropertyClassName.indexOf(':'));
-        if (property) {
-            // I use two dots here because one dot is used as prefix for class groups in plugins
-            return 'arbitrary..' + property;
+    // Build classRest string efficiently by joining from startIndex onwards
+    const classRest = startIndex === 0 ? classParts.join(CLASS_PART_SEPARATOR) : classParts.slice(startIndex).join(CLASS_PART_SEPARATOR);
+    const validatorsLength = validators.length;
+    for(let i = 0; i < validatorsLength; i++){
+        const validatorObj = validators[i];
+        if (validatorObj.validator(classRest)) {
+            return validatorObj.classGroupId;
         }
     }
+    return undefined;
 };
+/**
+ * Get the class group ID for an arbitrary property.
+ *
+ * @param className - The class name to get the group ID for. Is expected to be string starting with `[` and ending with `]`.
+ */ const getGroupIdForArbitraryProperty = (className)=>className.slice(1, -1).indexOf(':') === -1 ? undefined : (()=>{
+        const content = className.slice(1, -1);
+        const colonIndex = content.indexOf(':');
+        const property = content.slice(0, colonIndex);
+        return property ? ARBITRARY_PROPERTY_PREFIX + property : undefined;
+    })();
 /**
  * Exported for testing only
  */ const createClassMap = (config)=>{
     const { theme, classGroups } = config;
-    const classMap = {
-        nextPart: new Map(),
-        validators: []
-    };
+    return processClassGroups(classGroups, theme);
+};
+// Split into separate functions to maintain monomorphic call sites
+const processClassGroups = (classGroups, theme)=>{
+    const classMap = createClassPartObject();
     for(const classGroupId in classGroups){
-        processClassesRecursively(classGroups[classGroupId], classMap, classGroupId, theme);
+        const group = classGroups[classGroupId];
+        processClassesRecursively(group, classMap, classGroupId, theme);
     }
     return classMap;
 };
 const processClassesRecursively = (classGroup, classPartObject, classGroupId, theme)=>{
-    classGroup.forEach((classDefinition)=>{
-        if (typeof classDefinition === 'string') {
-            const classPartObjectToEdit = classDefinition === '' ? classPartObject : getPart(classPartObject, classDefinition);
-            classPartObjectToEdit.classGroupId = classGroupId;
-            return;
-        }
-        if (typeof classDefinition === 'function') {
-            if (isThemeGetter(classDefinition)) {
-                processClassesRecursively(classDefinition(theme), classPartObject, classGroupId, theme);
-                return;
-            }
-            classPartObject.validators.push({
-                validator: classDefinition,
-                classGroupId
-            });
-            return;
-        }
-        Object.entries(classDefinition).forEach(([key, classGroup])=>{
-            processClassesRecursively(classGroup, getPart(classPartObject, key), classGroupId, theme);
-        });
-    });
+    const len = classGroup.length;
+    for(let i = 0; i < len; i++){
+        const classDefinition = classGroup[i];
+        processClassDefinition(classDefinition, classPartObject, classGroupId, theme);
+    }
+};
+// Split into separate functions for each type to maintain monomorphic call sites
+const processClassDefinition = (classDefinition, classPartObject, classGroupId, theme)=>{
+    if (typeof classDefinition === 'string') {
+        processStringDefinition(classDefinition, classPartObject, classGroupId);
+        return;
+    }
+    if (typeof classDefinition === 'function') {
+        processFunctionDefinition(classDefinition, classPartObject, classGroupId, theme);
+        return;
+    }
+    processObjectDefinition(classDefinition, classPartObject, classGroupId, theme);
+};
+const processStringDefinition = (classDefinition, classPartObject, classGroupId)=>{
+    const classPartObjectToEdit = classDefinition === '' ? classPartObject : getPart(classPartObject, classDefinition);
+    classPartObjectToEdit.classGroupId = classGroupId;
+};
+const processFunctionDefinition = (classDefinition, classPartObject, classGroupId, theme)=>{
+    if (isThemeGetter(classDefinition)) {
+        processClassesRecursively(classDefinition(theme), classPartObject, classGroupId, theme);
+        return;
+    }
+    if (classPartObject.validators === null) {
+        classPartObject.validators = [];
+    }
+    classPartObject.validators.push(createClassValidatorObject(classGroupId, classDefinition));
+};
+const processObjectDefinition = (classDefinition, classPartObject, classGroupId, theme)=>{
+    const entries = Object.entries(classDefinition);
+    const len = entries.length;
+    for(let i = 0; i < len; i++){
+        const [key, value] = entries[i];
+        processClassesRecursively(value, getPart(classPartObject, key), classGroupId, theme);
+    }
 };
 const getPart = (classPartObject, path)=>{
-    let currentClassPartObject = classPartObject;
-    path.split(CLASS_PART_SEPARATOR).forEach((pathPart)=>{
-        if (!currentClassPartObject.nextPart.has(pathPart)) {
-            currentClassPartObject.nextPart.set(pathPart, {
-                nextPart: new Map(),
-                validators: []
-            });
+    let current = classPartObject;
+    const parts = path.split(CLASS_PART_SEPARATOR);
+    const len = parts.length;
+    for(let i = 0; i < len; i++){
+        const part = parts[i];
+        let next = current.nextPart.get(part);
+        if (!next) {
+            next = createClassPartObject();
+            current.nextPart.set(part, next);
         }
-        currentClassPartObject = currentClassPartObject.nextPart.get(pathPart);
-    });
-    return currentClassPartObject;
+        current = next;
+    }
+    return current;
 };
-const isThemeGetter = (func)=>func.isThemeGetter;
-// LRU cache inspired from hashlru (https://github.com/dominictarr/hashlru/blob/v1.0.4/index.js) but object replaced with Map to improve performance
+// Type guard maintains monomorphic check
+const isThemeGetter = (func)=>'isThemeGetter' in func && func.isThemeGetter === true;
+// LRU cache implementation using plain objects for simplicity
 const createLruCache = (maxCacheSize)=>{
     if (maxCacheSize < 1) {
         return {
@@ -708,31 +789,31 @@ const createLruCache = (maxCacheSize)=>{
         };
     }
     let cacheSize = 0;
-    let cache = new Map();
-    let previousCache = new Map();
+    let cache = Object.create(null);
+    let previousCache = Object.create(null);
     const update = (key, value)=>{
-        cache.set(key, value);
+        cache[key] = value;
         cacheSize++;
         if (cacheSize > maxCacheSize) {
             cacheSize = 0;
             previousCache = cache;
-            cache = new Map();
+            cache = Object.create(null);
         }
     };
     return {
         get (key) {
-            let value = cache.get(key);
+            let value = cache[key];
             if (value !== undefined) {
                 return value;
             }
-            if ((value = previousCache.get(key)) !== undefined) {
+            if ((value = previousCache[key]) !== undefined) {
                 update(key, value);
                 return value;
             }
         },
         set (key, value) {
-            if (cache.has(key)) {
-                cache.set(key, value);
+            if (key in cache) {
+                cache[key] = value;
             } else {
                 update(key, value);
             }
@@ -741,7 +822,15 @@ const createLruCache = (maxCacheSize)=>{
 };
 const IMPORTANT_MODIFIER = '!';
 const MODIFIER_SEPARATOR = ':';
-const MODIFIER_SEPARATOR_LENGTH = MODIFIER_SEPARATOR.length;
+const EMPTY_MODIFIERS = [];
+// Pre-allocated result object shape for consistency
+const createResultObject = (modifiers, hasImportantModifier, baseClassName, maybePostfixModifierPosition, isExternal)=>({
+        modifiers,
+        hasImportantModifier,
+        baseClassName,
+        maybePostfixModifierPosition,
+        isExternal
+    });
 const createParseClassName = (config)=>{
     const { prefix, experimentalParseClassName } = config;
     /**
@@ -750,17 +839,19 @@ const createParseClassName = (config)=>{
    * Inspired by `splitAtTopLevelOnly` used in Tailwind CSS
    * @see https://github.com/tailwindlabs/tailwindcss/blob/v3.2.2/src/util/splitAtTopLevelOnly.js
    */ let parseClassName = (className)=>{
+        // Use simple array with push for better performance
         const modifiers = [];
         let bracketDepth = 0;
         let parenDepth = 0;
         let modifierStart = 0;
         let postfixModifierPosition;
-        for(let index = 0; index < className.length; index++){
-            let currentCharacter = className[index];
+        const len = className.length;
+        for(let index = 0; index < len; index++){
+            const currentCharacter = className[index];
             if (bracketDepth === 0 && parenDepth === 0) {
                 if (currentCharacter === MODIFIER_SEPARATOR) {
                     modifiers.push(className.slice(modifierStart, index));
-                    modifierStart = index + MODIFIER_SEPARATOR_LENGTH;
+                    modifierStart = index + 1;
                     continue;
                 }
                 if (currentCharacter === '/') {
@@ -768,37 +859,32 @@ const createParseClassName = (config)=>{
                     continue;
                 }
             }
-            if (currentCharacter === '[') {
-                bracketDepth++;
-            } else if (currentCharacter === ']') {
-                bracketDepth--;
-            } else if (currentCharacter === '(') {
-                parenDepth++;
-            } else if (currentCharacter === ')') {
-                parenDepth--;
-            }
+            if (currentCharacter === '[') bracketDepth++;
+            else if (currentCharacter === ']') bracketDepth--;
+            else if (currentCharacter === '(') parenDepth++;
+            else if (currentCharacter === ')') parenDepth--;
         }
-        const baseClassNameWithImportantModifier = modifiers.length === 0 ? className : className.substring(modifierStart);
-        const baseClassName = stripImportantModifier(baseClassNameWithImportantModifier);
-        const hasImportantModifier = baseClassName !== baseClassNameWithImportantModifier;
+        const baseClassNameWithImportantModifier = modifiers.length === 0 ? className : className.slice(modifierStart);
+        // Inline important modifier check
+        let baseClassName = baseClassNameWithImportantModifier;
+        let hasImportantModifier = false;
+        if (baseClassNameWithImportantModifier.endsWith(IMPORTANT_MODIFIER)) {
+            baseClassName = baseClassNameWithImportantModifier.slice(0, -1);
+            hasImportantModifier = true;
+        } else if (/**
+     * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
+     * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
+     */ baseClassNameWithImportantModifier.startsWith(IMPORTANT_MODIFIER)) {
+            baseClassName = baseClassNameWithImportantModifier.slice(1);
+            hasImportantModifier = true;
+        }
         const maybePostfixModifierPosition = postfixModifierPosition && postfixModifierPosition > modifierStart ? postfixModifierPosition - modifierStart : undefined;
-        return {
-            modifiers,
-            hasImportantModifier,
-            baseClassName,
-            maybePostfixModifierPosition
-        };
+        return createResultObject(modifiers, hasImportantModifier, baseClassName, maybePostfixModifierPosition);
     };
     if (prefix) {
         const fullPrefix = prefix + MODIFIER_SEPARATOR;
         const parseClassNameOriginal = parseClassName;
-        parseClassName = (className)=>className.startsWith(fullPrefix) ? parseClassNameOriginal(className.substring(fullPrefix.length)) : {
-                isExternal: true,
-                modifiers: [],
-                hasImportantModifier: false,
-                baseClassName: className,
-                maybePostfixModifierPosition: undefined
-            };
+        parseClassName = (className)=>className.startsWith(fullPrefix) ? parseClassNameOriginal(className.slice(fullPrefix.length)) : createResultObject(EMPTY_MODIFIERS, false, className, undefined, true);
     }
     if (experimentalParseClassName) {
         const parseClassNameOriginal = parseClassName;
@@ -809,46 +895,46 @@ const createParseClassName = (config)=>{
     }
     return parseClassName;
 };
-const stripImportantModifier = (baseClassName)=>{
-    if (baseClassName.endsWith(IMPORTANT_MODIFIER)) {
-        return baseClassName.substring(0, baseClassName.length - 1);
-    }
-    /**
-   * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
-   * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
-   */ if (baseClassName.startsWith(IMPORTANT_MODIFIER)) {
-        return baseClassName.substring(1);
-    }
-    return baseClassName;
-};
 /**
  * Sorts modifiers according to following schema:
  * - Predefined modifiers are sorted alphabetically
  * - When an arbitrary variant appears, it must be preserved which modifiers are before and after it
  */ const createSortModifiers = (config)=>{
-    const orderSensitiveModifiers = Object.fromEntries(config.orderSensitiveModifiers.map((modifier)=>[
-            modifier,
-            true
-        ]));
-    const sortModifiers = (modifiers)=>{
-        if (modifiers.length <= 1) {
-            return modifiers;
-        }
-        const sortedModifiers = [];
-        let unsortedModifiers = [];
-        modifiers.forEach((modifier)=>{
-            const isPositionSensitive = modifier[0] === '[' || orderSensitiveModifiers[modifier];
-            if (isPositionSensitive) {
-                sortedModifiers.push(...unsortedModifiers.sort(), modifier);
-                unsortedModifiers = [];
+    // Pre-compute weights for all known modifiers for O(1) comparison
+    const modifierWeights = new Map();
+    // Assign weights to sensitive modifiers (highest priority, but preserve order)
+    config.orderSensitiveModifiers.forEach((mod, index)=>{
+        modifierWeights.set(mod, 1000000 + index); // High weights for sensitive mods
+    });
+    return (modifiers)=>{
+        const result = [];
+        let currentSegment = [];
+        // Process modifiers in one pass
+        for(let i = 0; i < modifiers.length; i++){
+            const modifier = modifiers[i];
+            // Check if modifier is sensitive (starts with '[' or in orderSensitiveModifiers)
+            const isArbitrary = modifier[0] === '[';
+            const isOrderSensitive = modifierWeights.has(modifier);
+            if (isArbitrary || isOrderSensitive) {
+                // Sort and flush current segment alphabetically
+                if (currentSegment.length > 0) {
+                    currentSegment.sort();
+                    result.push(...currentSegment);
+                    currentSegment = [];
+                }
+                result.push(modifier);
             } else {
-                unsortedModifiers.push(modifier);
+                // Regular modifier - add to current segment for batch sorting
+                currentSegment.push(modifier);
             }
-        });
-        sortedModifiers.push(...unsortedModifiers.sort());
-        return sortedModifiers;
+        }
+        // Sort and add any remaining segment items
+        if (currentSegment.length > 0) {
+            currentSegment.sort();
+            result.push(...currentSegment);
+        }
+        return result;
     };
-    return sortModifiers;
 };
 const createConfigUtils = (config)=>({
         cache: createLruCache(config.cacheSize),
@@ -891,10 +977,11 @@ const mergeClassList = (classList, configUtils)=>{
             }
             hasPostfixModifier = false;
         }
-        const variantModifier = sortModifiers(modifiers).join(':');
+        // Fast path: skip sorting for empty or single modifier
+        const variantModifier = modifiers.length === 0 ? '' : modifiers.length === 1 ? modifiers[0] : sortModifiers(modifiers).join(':');
         const modifierId = hasImportantModifier ? variantModifier + IMPORTANT_MODIFIER : variantModifier;
         const classId = modifierId + classGroupId;
-        if (classGroupsInConflict.includes(classId)) {
+        if (classGroupsInConflict.indexOf(classId) > -1) {
             continue;
         }
         classGroupsInConflict.push(classId);
@@ -916,13 +1003,13 @@ const mergeClassList = (classList, configUtils)=>{
  * - TypeScript types from https://github.com/lukeed/clsx/blob/v1.2.1/clsx.d.ts
  *
  * Original code has MIT license: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
- */ function twJoin() {
+ */ const twJoin = (...classLists)=>{
     let index = 0;
     let argument;
     let resolvedValue;
     let string = '';
-    while(index < arguments.length){
-        if (argument = arguments[index++]) {
+    while(index < classLists.length){
+        if (argument = classLists[index++]) {
             if (resolvedValue = toValue(argument)) {
                 string && (string += ' ');
                 string += resolvedValue;
@@ -930,8 +1017,9 @@ const mergeClassList = (classList, configUtils)=>{
         }
     }
     return string;
-}
+};
 const toValue = (mix)=>{
+    // Fast path for strings
     if (typeof mix === 'string') {
         return mix;
     }
@@ -947,20 +1035,20 @@ const toValue = (mix)=>{
     }
     return string;
 };
-function createTailwindMerge(createConfigFirst, ...createConfigRest) {
+const createTailwindMerge = (createConfigFirst, ...createConfigRest)=>{
     let configUtils;
     let cacheGet;
     let cacheSet;
-    let functionToCall = initTailwindMerge;
-    function initTailwindMerge(classList) {
+    let functionToCall;
+    const initTailwindMerge = (classList)=>{
         const config = createConfigRest.reduce((previousConfig, createConfigCurrent)=>createConfigCurrent(previousConfig), createConfigFirst());
         configUtils = createConfigUtils(config);
         cacheGet = configUtils.cache.get;
         cacheSet = configUtils.cache.set;
         functionToCall = tailwindMerge;
         return tailwindMerge(classList);
-    }
-    function tailwindMerge(classList) {
+    };
+    const tailwindMerge = (classList)=>{
         const cachedResult = cacheGet(classList);
         if (cachedResult) {
             return cachedResult;
@@ -968,19 +1056,19 @@ function createTailwindMerge(createConfigFirst, ...createConfigRest) {
         const result = mergeClassList(classList, configUtils);
         cacheSet(classList, result);
         return result;
-    }
-    return function callTailwindMerge() {
-        return functionToCall(twJoin.apply(null, arguments));
     };
-}
+    functionToCall = initTailwindMerge;
+    return (...args)=>functionToCall(twJoin(...args));
+};
+const fallbackThemeArr = [];
 const fromTheme = (key)=>{
-    const themeGetter = (theme)=>theme[key] || [];
+    const themeGetter = (theme)=>theme[key] || fallbackThemeArr;
     themeGetter.isThemeGetter = true;
     return themeGetter;
 };
 const arbitraryValueRegex = /^\[(?:(\w[\w-]*):)?(.+)\]$/i;
 const arbitraryVariableRegex = /^\((?:(\w[\w-]*):)?(.+)\)$/i;
-const fractionRegex = /^\d+\/\d+$/;
+const fractionRegex = /^\d+(?:\.\d+)?\/\d+(?:\.\d+)?$/;
 const tshirtUnitRegex = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/;
 const lengthUnitRegex = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
 const colorFunctionRegex = /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/;
@@ -1005,6 +1093,8 @@ const isArbitrarySize = (value)=>getIsArbitraryValue(value, isLabelSize, isNever
 const isArbitraryValue = (value)=>arbitraryValueRegex.test(value);
 const isArbitraryLength = (value)=>getIsArbitraryValue(value, isLabelLength, isLengthOnly);
 const isArbitraryNumber = (value)=>getIsArbitraryValue(value, isLabelNumber, isNumber);
+const isArbitraryWeight = (value)=>getIsArbitraryValue(value, isLabelWeight, isAny);
+const isArbitraryFamilyName = (value)=>getIsArbitraryValue(value, isLabelFamilyName, isNever);
 const isArbitraryPosition = (value)=>getIsArbitraryValue(value, isLabelPosition, isNever);
 const isArbitraryImage = (value)=>getIsArbitraryValue(value, isLabelImage, isImage);
 const isArbitraryShadow = (value)=>getIsArbitraryValue(value, isLabelShadow, isShadow);
@@ -1015,6 +1105,7 @@ const isArbitraryVariablePosition = (value)=>getIsArbitraryVariable(value, isLab
 const isArbitraryVariableSize = (value)=>getIsArbitraryVariable(value, isLabelSize);
 const isArbitraryVariableImage = (value)=>getIsArbitraryVariable(value, isLabelImage);
 const isArbitraryVariableShadow = (value)=>getIsArbitraryVariable(value, isLabelShadow, true);
+const isArbitraryVariableWeight = (value)=>getIsArbitraryVariable(value, isLabelWeight, true);
 // Helpers
 const getIsArbitraryValue = (value, testLabel, testValue)=>{
     const result = arbitraryValueRegex.exec(value);
@@ -1043,11 +1134,13 @@ const isLabelSize = (label)=>label === 'length' || label === 'size' || label ===
 const isLabelLength = (label)=>label === 'length';
 const isLabelNumber = (label)=>label === 'number';
 const isLabelFamilyName = (label)=>label === 'family-name';
+const isLabelWeight = (label)=>label === 'number' || label === 'weight';
 const isLabelShadow = (label)=>label === 'shadow';
 const validators = /*#__PURE__*/ Object.defineProperty({
     __proto__: null,
     isAny,
     isAnyNonArbitrary,
+    isArbitraryFamilyName,
     isArbitraryImage,
     isArbitraryLength,
     isArbitraryNumber,
@@ -1062,6 +1155,8 @@ const validators = /*#__PURE__*/ Object.defineProperty({
     isArbitraryVariablePosition,
     isArbitraryVariableShadow,
     isArbitraryVariableSize,
+    isArbitraryVariableWeight,
+    isArbitraryWeight,
     isFraction,
     isInteger,
     isNumber,
@@ -1223,6 +1318,31 @@ const getDefaultConfig = ()=>{
             'lvw',
             'lvh',
             'svw',
+            'svh',
+            'min',
+            'max',
+            'fit',
+            ...scaleUnambiguousSpacing()
+        ];
+    const scaleSizingInline = ()=>[
+            isFraction,
+            'screen',
+            'full',
+            'dvw',
+            'lvw',
+            'svw',
+            'min',
+            'max',
+            'fit',
+            ...scaleUnambiguousSpacing()
+        ];
+    const scaleSizingBlock = ()=>[
+            isFraction,
+            'screen',
+            'full',
+            'lh',
+            'dvh',
+            'lvh',
             'svh',
             'min',
             'max',
@@ -1680,7 +1800,7 @@ const getDefaultConfig = ()=>{
                 'sticky'
             ],
             /**
-       * Top / Right / Bottom / Left
+       * Inset
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */ inset: [
                 {
@@ -1688,7 +1808,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Right / Left
+       * Inset Inline
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */ 'inset-x': [
                 {
@@ -1696,7 +1816,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Top / Bottom
+       * Inset Block
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */ 'inset-y': [
                 {
@@ -1704,19 +1824,45 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Start
+       * Inset Inline Start
        * @see https://tailwindcss.com/docs/top-right-bottom-left
+       * @todo class group will be renamed to `inset-s` in next major release
        */ start: [
                 {
-                    start: scaleInset()
+                    'inset-s': scaleInset(),
+                    /**
+         * @deprecated since Tailwind CSS v4.2.0 in favor of `inset-s-*` utilities.
+         * @see https://github.com/tailwindlabs/tailwindcss/pull/19613
+         */ start: scaleInset()
                 }
             ],
             /**
-       * End
+       * Inset Inline End
        * @see https://tailwindcss.com/docs/top-right-bottom-left
+       * @todo class group will be renamed to `inset-e` in next major release
        */ end: [
                 {
-                    end: scaleInset()
+                    'inset-e': scaleInset(),
+                    /**
+         * @deprecated since Tailwind CSS v4.2.0 in favor of `inset-e-*` utilities.
+         * @see https://github.com/tailwindlabs/tailwindcss/pull/19613
+         */ end: scaleInset()
+                }
+            ],
+            /**
+       * Inset Block Start
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ 'inset-bs': [
+                {
+                    'inset-bs': scaleInset()
+                }
+            ],
+            /**
+       * Inset Block End
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */ 'inset-be': [
+                {
+                    'inset-be': scaleInset()
                 }
             ],
             /**
@@ -2105,7 +2251,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Padding X
+       * Padding Inline
        * @see https://tailwindcss.com/docs/padding
        */ px: [
                 {
@@ -2113,7 +2259,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Padding Y
+       * Padding Block
        * @see https://tailwindcss.com/docs/padding
        */ py: [
                 {
@@ -2121,7 +2267,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Padding Start
+       * Padding Inline Start
        * @see https://tailwindcss.com/docs/padding
        */ ps: [
                 {
@@ -2129,11 +2275,27 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Padding End
+       * Padding Inline End
        * @see https://tailwindcss.com/docs/padding
        */ pe: [
                 {
                     pe: scaleUnambiguousSpacing()
+                }
+            ],
+            /**
+       * Padding Block Start
+       * @see https://tailwindcss.com/docs/padding
+       */ pbs: [
+                {
+                    pbs: scaleUnambiguousSpacing()
+                }
+            ],
+            /**
+       * Padding Block End
+       * @see https://tailwindcss.com/docs/padding
+       */ pbe: [
+                {
+                    pbe: scaleUnambiguousSpacing()
                 }
             ],
             /**
@@ -2177,7 +2339,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Margin X
+       * Margin Inline
        * @see https://tailwindcss.com/docs/margin
        */ mx: [
                 {
@@ -2185,7 +2347,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Margin Y
+       * Margin Block
        * @see https://tailwindcss.com/docs/margin
        */ my: [
                 {
@@ -2193,7 +2355,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Margin Start
+       * Margin Inline Start
        * @see https://tailwindcss.com/docs/margin
        */ ms: [
                 {
@@ -2201,11 +2363,27 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Margin End
+       * Margin Inline End
        * @see https://tailwindcss.com/docs/margin
        */ me: [
                 {
                     me: scaleMargin()
+                }
+            ],
+            /**
+       * Margin Block Start
+       * @see https://tailwindcss.com/docs/margin
+       */ mbs: [
+                {
+                    mbs: scaleMargin()
+                }
+            ],
+            /**
+       * Margin Block End
+       * @see https://tailwindcss.com/docs/margin
+       */ mbe: [
+                {
+                    mbe: scaleMargin()
                 }
             ],
             /**
@@ -2277,6 +2455,72 @@ const getDefaultConfig = ()=>{
        */ size: [
                 {
                     size: scaleSizing()
+                }
+            ],
+            /**
+       * Inline Size
+       * @see https://tailwindcss.com/docs/width
+       */ 'inline-size': [
+                {
+                    inline: [
+                        'auto',
+                        ...scaleSizingInline()
+                    ]
+                }
+            ],
+            /**
+       * Min-Inline Size
+       * @see https://tailwindcss.com/docs/min-width
+       */ 'min-inline-size': [
+                {
+                    'min-inline': [
+                        'auto',
+                        ...scaleSizingInline()
+                    ]
+                }
+            ],
+            /**
+       * Max-Inline Size
+       * @see https://tailwindcss.com/docs/max-width
+       */ 'max-inline-size': [
+                {
+                    'max-inline': [
+                        'none',
+                        ...scaleSizingInline()
+                    ]
+                }
+            ],
+            /**
+       * Block Size
+       * @see https://tailwindcss.com/docs/height
+       */ 'block-size': [
+                {
+                    block: [
+                        'auto',
+                        ...scaleSizingBlock()
+                    ]
+                }
+            ],
+            /**
+       * Min-Block Size
+       * @see https://tailwindcss.com/docs/min-height
+       */ 'min-block-size': [
+                {
+                    'min-block': [
+                        'auto',
+                        ...scaleSizingBlock()
+                    ]
+                }
+            ],
+            /**
+       * Max-Block Size
+       * @see https://tailwindcss.com/docs/max-height
+       */ 'max-block-size': [
+                {
+                    'max-block': [
+                        'none',
+                        ...scaleSizingBlock()
+                    ]
                 }
             ],
             /**
@@ -2397,8 +2641,8 @@ const getDefaultConfig = ()=>{
                 {
                     font: [
                         themeFontWeight,
-                        isArbitraryVariable,
-                        isArbitraryNumber
+                        isArbitraryVariableWeight,
+                        isArbitraryWeight
                     ]
                 }
             ],
@@ -2429,8 +2673,18 @@ const getDefaultConfig = ()=>{
                 {
                     font: [
                         isArbitraryVariableFamilyName,
-                        isArbitraryValue,
+                        isArbitraryFamilyName,
                         themeFont
+                    ]
+                }
+            ],
+            /**
+       * Font Feature Settings
+       * @see https://tailwindcss.com/docs/font-feature-settings
+       */ 'font-features': [
+                {
+                    'font-features': [
+                        isArbitraryValue
                     ]
                 }
             ],
@@ -3047,7 +3301,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Width X
+       * Border Width Inline
        * @see https://tailwindcss.com/docs/border-width
        */ 'border-w-x': [
                 {
@@ -3055,7 +3309,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Width Y
+       * Border Width Block
        * @see https://tailwindcss.com/docs/border-width
        */ 'border-w-y': [
                 {
@@ -3063,7 +3317,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Width Start
+       * Border Width Inline Start
        * @see https://tailwindcss.com/docs/border-width
        */ 'border-w-s': [
                 {
@@ -3071,11 +3325,27 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Width End
+       * Border Width Inline End
        * @see https://tailwindcss.com/docs/border-width
        */ 'border-w-e': [
                 {
                     'border-e': scaleBorderWidth()
+                }
+            ],
+            /**
+       * Border Width Block Start
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-bs': [
+                {
+                    'border-bs': scaleBorderWidth()
+                }
+            ],
+            /**
+       * Border Width Block End
+       * @see https://tailwindcss.com/docs/border-width
+       */ 'border-w-be': [
+                {
+                    'border-be': scaleBorderWidth()
                 }
             ],
             /**
@@ -3171,7 +3441,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Color X
+       * Border Color Inline
        * @see https://tailwindcss.com/docs/border-color
        */ 'border-color-x': [
                 {
@@ -3179,7 +3449,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Color Y
+       * Border Color Block
        * @see https://tailwindcss.com/docs/border-color
        */ 'border-color-y': [
                 {
@@ -3187,7 +3457,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Color S
+       * Border Color Inline Start
        * @see https://tailwindcss.com/docs/border-color
        */ 'border-color-s': [
                 {
@@ -3195,11 +3465,27 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Border Color E
+       * Border Color Inline End
        * @see https://tailwindcss.com/docs/border-color
        */ 'border-color-e': [
                 {
                     'border-e': scaleColor()
+                }
+            ],
+            /**
+       * Border Color Block Start
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-bs': [
+                {
+                    'border-bs': scaleColor()
+                }
+            ],
+            /**
+       * Border Color Block End
+       * @see https://tailwindcss.com/docs/border-color
+       */ 'border-color-be': [
+                {
+                    'border-be': scaleColor()
                 }
             ],
             /**
@@ -4534,7 +4820,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Margin X
+       * Scroll Margin Inline
        * @see https://tailwindcss.com/docs/scroll-margin
        */ 'scroll-mx': [
                 {
@@ -4542,7 +4828,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Margin Y
+       * Scroll Margin Block
        * @see https://tailwindcss.com/docs/scroll-margin
        */ 'scroll-my': [
                 {
@@ -4550,7 +4836,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Margin Start
+       * Scroll Margin Inline Start
        * @see https://tailwindcss.com/docs/scroll-margin
        */ 'scroll-ms': [
                 {
@@ -4558,11 +4844,27 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Margin End
+       * Scroll Margin Inline End
        * @see https://tailwindcss.com/docs/scroll-margin
        */ 'scroll-me': [
                 {
                     'scroll-me': scaleUnambiguousSpacing()
+                }
+            ],
+            /**
+       * Scroll Margin Block Start
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-mbs': [
+                {
+                    'scroll-mbs': scaleUnambiguousSpacing()
+                }
+            ],
+            /**
+       * Scroll Margin Block End
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */ 'scroll-mbe': [
+                {
+                    'scroll-mbe': scaleUnambiguousSpacing()
                 }
             ],
             /**
@@ -4606,7 +4908,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Padding X
+       * Scroll Padding Inline
        * @see https://tailwindcss.com/docs/scroll-padding
        */ 'scroll-px': [
                 {
@@ -4614,7 +4916,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Padding Y
+       * Scroll Padding Block
        * @see https://tailwindcss.com/docs/scroll-padding
        */ 'scroll-py': [
                 {
@@ -4622,7 +4924,7 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Padding Start
+       * Scroll Padding Inline Start
        * @see https://tailwindcss.com/docs/scroll-padding
        */ 'scroll-ps': [
                 {
@@ -4630,11 +4932,27 @@ const getDefaultConfig = ()=>{
                 }
             ],
             /**
-       * Scroll Padding End
+       * Scroll Padding Inline End
        * @see https://tailwindcss.com/docs/scroll-padding
        */ 'scroll-pe': [
                 {
                     'scroll-pe': scaleUnambiguousSpacing()
+                }
+            ],
+            /**
+       * Scroll Padding Block Start
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pbs': [
+                {
+                    'scroll-pbs': scaleUnambiguousSpacing()
+                }
+            ],
+            /**
+       * Scroll Padding Block End
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */ 'scroll-pbe': [
+                {
+                    'scroll-pbe': scaleUnambiguousSpacing()
                 }
             ],
             /**
@@ -4852,6 +5170,8 @@ const getDefaultConfig = ()=>{
             inset: [
                 'inset-x',
                 'inset-y',
+                'inset-bs',
+                'inset-be',
                 'start',
                 'end',
                 'top',
@@ -4881,6 +5201,8 @@ const getDefaultConfig = ()=>{
                 'py',
                 'ps',
                 'pe',
+                'pbs',
+                'pbe',
                 'pt',
                 'pr',
                 'pb',
@@ -4899,6 +5221,8 @@ const getDefaultConfig = ()=>{
                 'my',
                 'ms',
                 'me',
+                'mbs',
+                'mbe',
                 'mt',
                 'mr',
                 'mb',
@@ -4994,6 +5318,8 @@ const getDefaultConfig = ()=>{
                 'border-w-y',
                 'border-w-s',
                 'border-w-e',
+                'border-w-bs',
+                'border-w-be',
                 'border-w-t',
                 'border-w-r',
                 'border-w-b',
@@ -5012,6 +5338,8 @@ const getDefaultConfig = ()=>{
                 'border-color-y',
                 'border-color-s',
                 'border-color-e',
+                'border-color-bs',
+                'border-color-be',
                 'border-color-t',
                 'border-color-r',
                 'border-color-b',
@@ -5041,6 +5369,8 @@ const getDefaultConfig = ()=>{
                 'scroll-my',
                 'scroll-ms',
                 'scroll-me',
+                'scroll-mbs',
+                'scroll-mbe',
                 'scroll-mt',
                 'scroll-mr',
                 'scroll-mb',
@@ -5059,6 +5389,8 @@ const getDefaultConfig = ()=>{
                 'scroll-py',
                 'scroll-ps',
                 'scroll-pe',
+                'scroll-pbs',
+                'scroll-pbe',
                 'scroll-pt',
                 'scroll-pr',
                 'scroll-pb',
