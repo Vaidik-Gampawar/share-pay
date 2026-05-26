@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PlusCircle, ArrowLeftRight, ArrowLeft } from "lucide-react";
 import { ExpenseList } from "@/components/expense-list";
 import { SettlementList } from "@/components/settlement-list";
+import { ExportReportButton } from "@/components/export-report-button";
 
 export default function PersonExpensesPage() {
   const params = useParams();
@@ -23,6 +24,8 @@ export default function PersonExpensesPage() {
     api.expenses.getExpensesBetweenUsers,
     { userId: params.id }
   );
+
+  const { data: currentUser } = useConvexQuery(api.users.getCurrentUser);
 
   if (isLoading) {
     return (
@@ -64,7 +67,17 @@ export default function PersonExpensesPage() {
             </div>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap items-center">
+            {otherUser && currentUser && (
+              <ExportReportButton
+                entityName={otherUser.name}
+                entityType="individual"
+                expenses={expenses}
+                settlements={settlements}
+                userLookupMap={{ [otherUser.id]: otherUser }}
+                currentUser={currentUser}
+              />
+            )}
             <Button asChild variant="outline">
               <Link href={`/settlements/user/${params.id}`}>
                 <ArrowLeftRight className="mr-2 h-4 w-4" />

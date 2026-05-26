@@ -14,6 +14,7 @@ import { ExpenseList } from "@/components/expense-list";
 import { SettlementList } from "@/components/settlement-list";
 import { GroupBalances } from "@/components/group-balances";
 import { GroupMembers } from "@/components/group-members";
+import { ExportReportButton } from "@/components/export-report-button";
 
 export default function GroupExpensesPage() {
   const params = useParams();
@@ -23,6 +24,8 @@ export default function GroupExpensesPage() {
   const { data, isLoading } = useConvexQuery(api.groups.getGroupExpenses, {
     groupId: params.id,
   });
+
+  const { data: currentUser } = useConvexQuery(api.users.getCurrentUser);
 
   if (isLoading) {
     return (
@@ -66,7 +69,18 @@ export default function GroupExpensesPage() {
             </div>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap items-center">
+            {group && currentUser && (
+              <ExportReportButton
+                entityName={group.name}
+                entityType="group"
+                expenses={expenses}
+                settlements={settlements}
+                members={balances}
+                userLookupMap={userLookupMap}
+                currentUser={currentUser}
+              />
+            )}
             <Button asChild variant="outline">
               <Link href={`/settlements/group/${params.id}`}>
                 <ArrowLeftRight className="mr-2 h-4 w-4" />

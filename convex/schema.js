@@ -64,4 +64,13 @@ export default defineSchema({
       })
     ),
   }),
+
+  // Activities / Audit Trail
+  activities: defineTable({
+    groupId: v.id("groups"),
+    type: v.string(), // "group_created" | "expense_created" | "expense_deleted" | "settlement_created"
+    userId: v.id("users"), // Who did it
+    description: v.string(), // Readable details of the action
+    timestamp: v.number(),
+  }).index("by_group", ["groupId"]),
 });
